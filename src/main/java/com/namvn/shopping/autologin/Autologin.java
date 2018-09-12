@@ -1,6 +1,6 @@
 package com.namvn.shopping.autologin;
 
-import com.namvn.shopping.model.User;
+import com.namvn.shopping.persistence.model.User;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

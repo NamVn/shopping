@@ -1,6 +1,6 @@
 package com.namvn.shopping.validation;
 
-import com.namvn.shopping.dto.UserDto;
+import com.namvn.shopping.web.dto.UserDto;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

@@ -1,10 +1,10 @@
 package com.namvn.shopping.service;
 
-import com.namvn.shopping.dto.UserDto;
-import com.namvn.shopping.model.PasswordResetToken;
-import com.namvn.shopping.model.User;
-import com.namvn.shopping.model.VerificationToken;
-import com.login.web.error.UserAlreadyExistException;
+import com.namvn.shopping.web.dto.UserDto;
+import com.namvn.shopping.persistence.model.PasswordResetToken;
+import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.model.VerificationToken;
+import com.namvn.shopping.web.error.UserAlreadyExistException;
 
 import java.util.List;
 import java.util.Optional;

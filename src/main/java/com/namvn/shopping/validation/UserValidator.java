@@ -1,6 +1,6 @@
 package com.namvn.shopping.validation;
 
-import com.namvn.shopping.dto.UserDto;
+import com.namvn.shopping.web.dto.UserDto;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;

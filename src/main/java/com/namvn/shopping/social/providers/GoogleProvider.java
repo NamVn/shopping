@@ -1,6 +1,6 @@
 package com.namvn.shopping.social.providers;
 
-import com.namvn.shopping.model.User;
+import com.namvn.shopping.persistence.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.google.api.Google;

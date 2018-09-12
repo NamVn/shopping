@@ -1,8 +1,8 @@
 package com.namvn.shopping.social.providers;
 
 import com.namvn.shopping.autologin.Autologin;
-import com.namvn.shopping.model.User;
-import com.namvn.shopping.repository.UserRepository;
+import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.repository.UserRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,14 +1,14 @@
 package com.namvn.shopping.service;
 
-import com.namvn.shopping.dto.UserDto;
-import com.namvn.shopping.model.PasswordResetToken;
-import com.namvn.shopping.model.User;
-import com.namvn.shopping.model.VerificationToken;
-import com.namvn.shopping.repository.PasswordResetTokenRepository;
-import com.namvn.shopping.repository.RoleRepository;
-import com.namvn.shopping.repository.UserRepository;
-import com.namvn.shopping.repository.VerificationTokenRepository;
-import com.namvn.shopping.error.UserAlreadyExistException;
+import com.namvn.shopping.web.dto.UserDto;
+import com.namvn.shopping.persistence.model.PasswordResetToken;
+import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.model.VerificationToken;
+import com.namvn.shopping.persistence.repository.PasswordResetTokenRepository;
+import com.namvn.shopping.persistence.repository.RoleRepository;
+import com.namvn.shopping.persistence.repository.UserRepository;
+import com.namvn.shopping.persistence.repository.VerificationTokenRepository;
+import com.namvn.shopping.web.error.UserAlreadyExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
