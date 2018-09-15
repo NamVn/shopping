@@ -1,4 +1,4 @@
-package com.namvn.shopping.security.impl;
+package com.namvn.shopping.security;
 
 import com.namvn.shopping.persistence.model.Privilege;
 import com.namvn.shopping.persistence.model.Role;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
