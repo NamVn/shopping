@@ -2,6 +2,7 @@ package com.namvn.shopping.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -20,12 +21,16 @@ import java.util.Collection;
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+    @Autowired
+    ActiveUserStore activeUserStore;
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         handle(httpServletRequest,httpServletResponse,authentication);
         final HttpSession session = httpServletRequest.getSession(false);
         if (session != null) {
             session.setMaxInactiveInterval(30 * 60);
+            LoggedUserSessionListener user = new LoggedUserSessionListener(authentication.getName(), activeUserStore);
+            session.setAttribute("user", user);
         }
         clearAuthenticationAttributes(httpServletRequest);
     }

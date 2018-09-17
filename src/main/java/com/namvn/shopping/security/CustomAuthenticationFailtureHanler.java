@@ -18,11 +18,11 @@ public class CustomAuthenticationFailtureHanler implements AuthenticationFailure
     private LoginAttemptService loginAttemptService;
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        final String xfHeader = request.getHeader("X-Forwarded-For");
-        if (xfHeader == null) {
-            loginAttemptService.loginFailed(request.getRemoteAddr());
-        } else {
-            loginAttemptService.loginFailed(xfHeader.split(",")[0]);
-        }
+//        final String xfHeader = request.getHeader("X-Forwarded-For");
+//        if (xfHeader == null) {
+//            loginAttemptService.loginFailed(request.getRemoteAddr());
+//        } else {
+//            loginAttemptService.loginFailed(xfHeader.split(",")[0]);
+//        }
     }
 }
