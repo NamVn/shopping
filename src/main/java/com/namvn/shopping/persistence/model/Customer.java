@@ -1,25 +1,21 @@
 package com.namvn.shopping.persistence.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "contact")
-public class Contact {
+@Table(name = "customer")
+public class Customer {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
-    private String company;
+    private String provice;
     private String address;
     private String tel;
-    private String mail;
-    private String detail;
-    private Date date;
+    private String email;
 
-    public Contact() {
+    public Customer() {
     }
 
     public Long getId() {
@@ -38,12 +34,12 @@ public class Contact {
         this.name = name;
     }
 
-    public String getCompany() {
-        return company;
+    public String getProvice() {
+        return provice;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setProvice(String provice) {
+        this.provice = provice;
     }
 
     public String getAddress() {
@@ -62,27 +58,11 @@ public class Contact {
         this.tel = tel;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

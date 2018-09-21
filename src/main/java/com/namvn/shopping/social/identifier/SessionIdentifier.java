@@ -1,4 +1,4 @@
-package com.namvn.shopping.identifier;
+package com.namvn.shopping.social.identifier;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.social.UserIdSource;

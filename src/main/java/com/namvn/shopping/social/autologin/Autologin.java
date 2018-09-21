@@ -1,4 +1,4 @@
-package com.namvn.shopping.autologin;
+package com.namvn.shopping.social.autologin;
 
 import com.namvn.shopping.persistence.model.User;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

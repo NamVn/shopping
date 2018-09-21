@@ -1,6 +1,6 @@
 package com.namvn.shopping.web.controller;
 
-import com.namvn.shopping.autologin.Autologin;
+import com.namvn.shopping.social.autologin.Autologin;
 import com.namvn.shopping.persistence.model.User;
 import com.namvn.shopping.persistence.repository.UserRepository;
 import com.namvn.shopping.social.providers.FacebookProvider;

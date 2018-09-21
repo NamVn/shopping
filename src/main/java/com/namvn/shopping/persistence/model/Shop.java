@@ -4,18 +4,19 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "catergory")
-public class Catergory {
+@Table(name = "shop")
+public class Shop {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
-    private String name;
-    private String image;
-    private int stattus;
 
-    public Catergory() {
+    private String name;
+    private String address;
+    private String tel;
+
+    public Shop() {
+
     }
 
     public Long getId() {
@@ -34,19 +35,19 @@ public class Catergory {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
+    public String getAddress() {
+        return address;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public int getStattus() {
-        return stattus;
+    public String getTel() {
+        return tel;
     }
 
-    public void setStattus(int stattus) {
-        this.stattus = stattus;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }

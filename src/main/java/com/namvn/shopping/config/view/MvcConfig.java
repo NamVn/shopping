@@ -16,7 +16,19 @@ import org.springframework.web.servlet.config.annotation.*;
 public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/");
+
+        registry.addViewController("/index.html");
+        registry.addViewController("/404.html");
+        registry.addViewController("/blog.html");
+        registry.addViewController("/blog-single.html");
+        registry.addViewController("/cart.html");
+        registry.addViewController("/checkout.html");
+        registry.addViewController("/contact-us.html");
+        registry.addViewController("/product-details.html");
+        registry.addViewController("/shop.html");
+//        registry.addViewController("/login");
+//        registry.addViewController("/login");
+//        registry.addViewController("/login");
     }
 
     @Override

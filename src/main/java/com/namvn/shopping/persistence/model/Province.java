@@ -3,15 +3,15 @@ package com.namvn.shopping.persistence.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orderdetail")
-public class OrderDetail {
+@Table(name = "province")
+public class Province {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int quantity;
+    private String name;
 
-    public OrderDetail() {
+    public Province() {
     }
 
     public Long getId() {
@@ -22,11 +22,11 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getName() {
+        return name;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setName(String name) {
+        this.name = name;
     }
 }

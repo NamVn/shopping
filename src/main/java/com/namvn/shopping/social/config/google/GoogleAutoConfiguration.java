@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.namvn.shopping.social.google;
+package com.namvn.shopping.social.config.google;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -75,7 +76,7 @@ public class GoogleAutoConfiguration {
 
 		@Override
 		protected ConnectionFactory<?> createConnectionFactory() {
-			return new GoogleConnectionFactory(this.properties.getAppId(), this.properties.getAppSecret());
+			return new GoogleConnectionFactory(properties.getAppId(), properties.getAppSecret());
 		}
 
 	}
