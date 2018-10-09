@@ -1,7 +1,7 @@
 package com.namvn.shopping.social.providers;
 
 import com.namvn.shopping.social.autologin.Autologin;
-import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.entity.User;
 import com.namvn.shopping.persistence.repository.UserRepository;
 
 
@@ -12,7 +12,8 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.google.api.Google;
+
+
 import org.thymeleaf.util.StringUtils;
 
 
@@ -21,7 +22,8 @@ import org.thymeleaf.util.StringUtils;
 public class BaseProvider {
 
     private Facebook facebook;
-    private Google google;
+
+
 
     private ConnectionRepository connectionRepository;
 
@@ -34,10 +36,10 @@ public class BaseProvider {
     @Autowired
     protected Autologin autologin;
 
-    public BaseProvider(Facebook facebook, Google google , ConnectionRepository connectionRepository) {
+    public BaseProvider(Facebook facebook, ConnectionRepository connectionRepository) {
 	this.facebook = facebook;
 	this.connectionRepository = connectionRepository;
-	this.google = google;
+
 
     }
 
@@ -68,15 +70,6 @@ public class BaseProvider {
     public void setConnectionRepository(ConnectionRepository connectionRepository) {
 	this.connectionRepository = connectionRepository;
     }
-
-    public Google getGoogle() {
-	return google;
-    }
-
-    public void setGoogle(Google google) {
-	this.google = google;
-    }
-
 
 
 }

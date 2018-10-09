@@ -1,10 +1,9 @@
 package com.namvn.shopping.web.controller;
 
 import com.namvn.shopping.social.autologin.Autologin;
-import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.entity.User;
 import com.namvn.shopping.persistence.repository.UserRepository;
 import com.namvn.shopping.social.providers.FacebookProvider;
-import com.namvn.shopping.social.providers.GoogleProvider;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,8 +25,8 @@ public class LoginController {
     @Autowired
     FacebookProvider facebookProvider;
 
-    @Autowired
-    GoogleProvider googleProvider;
+//    @Autowired
+//    GoogleProvider googleProvider;
 
 
 
@@ -45,10 +44,10 @@ public class LoginController {
 	return facebookProvider.getFacebookUserData(model, new User());
     }
 
-    @RequestMapping(value = "/google", method = RequestMethod.GET)
-    public String loginToGoogle(Model model) {
-	return googleProvider.getGoogleUserData(model, new User());
-    }
+//    @RequestMapping(value = "/google", method = RequestMethod.GET)
+//    public String loginToGoogle(Model entity) {
+//	return googleProvider.getGoogleUserData(entity, new User());
+//    }
 
 
 

@@ -1,4 +1,4 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -9,7 +9,7 @@ public class Privilege {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long privilegeId;
 
     private String name;
 
@@ -27,13 +27,7 @@ public class Privilege {
 
     //
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(final Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -79,7 +73,7 @@ public class Privilege {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("Privilege [name=").append(name).append("]").append("[id=").append(id).append("]");
+        builder.append("Privilege [name=").append(name).append("]").append("[id=").append(privilegeId).append("]");
         return builder.toString();
     }
 }

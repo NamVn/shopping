@@ -1,6 +1,7 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "province")
@@ -8,19 +9,14 @@ public class Province {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long provinceId;
     private String name;
-
+    @OneToMany(mappedBy = "province", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Shop> shops;
     public Province() {
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

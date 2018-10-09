@@ -1,4 +1,4 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
 
@@ -8,9 +8,9 @@ public class Customer {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long customerId;
     private String name;
-    private String provice;
+    private String province;
     private String address;
     private String tel;
     private String email;
@@ -18,12 +18,14 @@ public class Customer {
     public Customer() {
     }
 
-    public Long getId() {
-        return id;
+
+
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public String getName() {
@@ -34,12 +36,12 @@ public class Customer {
         this.name = name;
     }
 
-    public String getProvice() {
-        return provice;
+    public String getProvince() {
+        return province;
     }
 
-    public void setProvice(String provice) {
-        this.provice = provice;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getAddress() {

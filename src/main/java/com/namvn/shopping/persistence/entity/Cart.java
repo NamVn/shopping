@@ -1,29 +1,37 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "cart")
+public class Cart {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long cartId;
     private float totalMoney;
     private Date date;
     private int status;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private User user;
 
-    public Order() {
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CartItem> cartItems;
+
+    public Cart() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getCartId() {
+        return cartId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCartId(Long cartId) {
+        this.cartId = cartId;
     }
+
 
     public float getTotalMoney() {
         return totalMoney;

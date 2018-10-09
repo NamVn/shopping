@@ -1,6 +1,6 @@
 package com.namvn.shopping.security;
 
-import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.entity.User;
 import com.namvn.shopping.persistence.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 

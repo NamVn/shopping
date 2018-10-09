@@ -1,21 +1,31 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "company")
-public class Company {
+@Table(name = "shop")
+public class Shop {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
+    private String name;
     private String address;
     private String tel;
-    private String fax;
+    @ManyToOne
+    @JoinColumn(name = "provinceId")
+    private Province province;
+    public Shop() {
 
-    public Company() {
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
     }
 
     public Long getId() {
@@ -24,6 +34,14 @@ public class Company {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -40,13 +58,5 @@ public class Company {
 
     public void setTel(String tel) {
         this.tel = tel;
-    }
-
-    public String getFax() {
-        return fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
     }
 }

@@ -1,11 +1,11 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "contact")
-public class Contact {
+public class FeedBack {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +19,7 @@ public class Contact {
     private String detail;
     private Date date;
 
-    public Contact() {
+    public FeedBack() {
     }
 
     public Long getId() {

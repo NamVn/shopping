@@ -1,5 +1,5 @@
 
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import org.hibernate.validator.constraints.Email;
 
@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -19,7 +20,7 @@ public class User implements Serializable {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long userId;
 
     @NotNull(message = "Email  cannot be empty")
     @Email(message = "Email Format is not valid")
@@ -33,22 +34,26 @@ public class User implements Serializable {
     @NotNull(message = "Last Name cannot be empty")
     @Size(min = 3, max = 30, message = "Last Name cannot be less than 3 characters")
     private String lastName;
-
-    private String title;
-    private String country;
     private String password;
-
-
     @Transient
     private String passwordConfirm;
     private String provider;
     private String image;
     private boolean enabled;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"))
     private Collection<Role> roles;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "user")
+    //@JoinColumn(name = "cartId")
+    private Cart cart;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Bill> bills;
+
 
     public String getEmail() {
         return email;
@@ -56,6 +61,22 @@ public class User implements Serializable {
 
     public String getImage() {
         return image;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public void setImage(String image) {
@@ -70,13 +91,6 @@ public class User implements Serializable {
         return password;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public void setPassword(String password) {
         this.password = password;
@@ -110,21 +124,6 @@ public class User implements Serializable {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public String getFirstName() {
         return firstName;

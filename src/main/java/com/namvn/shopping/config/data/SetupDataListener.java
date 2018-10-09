@@ -1,13 +1,12 @@
 package com.namvn.shopping.config.data;
 
-import com.namvn.shopping.persistence.model.Privilege;
-import com.namvn.shopping.persistence.model.Role;
-import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.entity.Privilege;
+import com.namvn.shopping.persistence.entity.Role;
+import com.namvn.shopping.persistence.entity.User;
 import com.namvn.shopping.persistence.repository.PrivilegeRepository;
 import com.namvn.shopping.persistence.repository.RoleRepository;
 import com.namvn.shopping.persistence.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;

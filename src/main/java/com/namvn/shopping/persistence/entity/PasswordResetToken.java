@@ -1,4 +1,4 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -6,9 +6,8 @@ import java.util.Date;
 
 @Entity
 @Table
-
-//@Table(name = "verificationtoken")
-public class VerificationToken {
+//@Table(name = "passwordresettoken")
+public class PasswordResetToken {
 
     private static final int EXPIRATION = 60 * 24;
 
@@ -19,23 +18,23 @@ public class VerificationToken {
     private String token;
 
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "user_id", foreignKey = @ForeignKey(name = "FK_VERIFY_USER"))
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
     private Date expiryDate;
 
-    public VerificationToken() {
+    public PasswordResetToken() {
         super();
     }
 
-    public VerificationToken(final String token) {
+    public PasswordResetToken(final String token) {
         super();
 
         this.token = token;
         this.expiryDate = calculateExpiryDate(EXPIRATION);
     }
 
-    public VerificationToken(final String token, final User user) {
+    public PasswordResetToken(final String token, final User user) {
         super();
 
         this.token = token;
@@ -43,6 +42,7 @@ public class VerificationToken {
         this.expiryDate = calculateExpiryDate(EXPIRATION);
     }
 
+    //
     public Long getId() {
         return id;
     }
@@ -106,7 +106,7 @@ public class VerificationToken {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final VerificationToken other = (VerificationToken) obj;
+        final PasswordResetToken other = (PasswordResetToken) obj;
         if (expiryDate == null) {
             if (other.expiryDate != null) {
                 return false;

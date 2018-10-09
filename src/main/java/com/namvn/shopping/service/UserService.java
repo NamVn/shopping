@@ -1,9 +1,9 @@
 package com.namvn.shopping.service;
 
 import com.namvn.shopping.web.dto.UserDto;
-import com.namvn.shopping.persistence.model.PasswordResetToken;
-import com.namvn.shopping.persistence.model.User;
-import com.namvn.shopping.persistence.model.VerificationToken;
+import com.namvn.shopping.persistence.entity.PasswordResetToken;
+import com.namvn.shopping.persistence.entity.User;
+import com.namvn.shopping.persistence.entity.VerificationToken;
 import com.namvn.shopping.persistence.repository.PasswordResetTokenRepository;
 import com.namvn.shopping.persistence.repository.RoleRepository;
 import com.namvn.shopping.persistence.repository.UserRepository;

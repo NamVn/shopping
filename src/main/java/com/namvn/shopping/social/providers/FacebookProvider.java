@@ -1,6 +1,6 @@
 package com.namvn.shopping.social.providers;
 
-import com.namvn.shopping.persistence.model.User;
+import com.namvn.shopping.persistence.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;

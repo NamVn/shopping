@@ -1,7 +1,8 @@
-package com.namvn.shopping.persistence.model;
+package com.namvn.shopping.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table
@@ -11,15 +12,15 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long roleId;
 
     @ManyToMany(mappedBy = "roles")
     private Collection<User> users;
 
     @ManyToMany
     @JoinTable(name = "roles_privileges",
-            joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"),
+            inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "privilegeId"))
     private Collection<Privilege> privileges;
 
     private String name;
@@ -35,12 +36,17 @@ public class Role {
 
     //
 
-    public Long getId() {
-        return id;
+
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setId(final Long id) {
-        this.id = id;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    public void setUsers(Collection<User> users) {
+        this.users = users;
     }
 
     public String getName() {
@@ -55,7 +61,7 @@ public class Role {
         return users;
     }
 
-    public void setUsers(final Collection<User> users) {
+    public void setUsers(final List<User> users) {
         this.users = users;
     }
 
@@ -96,7 +102,7 @@ public class Role {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("Role [name=").append(name).append("]").append("[id=").append(id).append("]");
+        builder.append("Role [name=").append(name).append("]").append("[id=").append(roleId).append("]");
         return builder.toString();
     }
 }
