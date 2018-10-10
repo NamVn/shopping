@@ -17,14 +17,17 @@ public class Product {
     private String name;
     @NotNull
     private String detail;
-
-    private float prices;
+    private String color;
+    private String size;
     @Column(name = "manufacturer")
     private String productManufacturer;
+    private String material;
+    private String madeIn;
+    private String province;
     @NotNull
     private String image;
+    private float prices;
     private float priceNew;
-    private String province;
     @NotNull
     private Date date;
     private int status;
@@ -63,6 +66,14 @@ public class Product {
         this.cartItems = cartItems;
     }
 
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
     public String getProductManufacturer() {
         return productManufacturer;
     }
@@ -87,6 +98,30 @@ public class Product {
         this.productId = productId;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+
+    public String getMadeIn() {
+        return madeIn;
+    }
+
+    public void setMadeIn(String madeIn) {
+        this.madeIn = madeIn;
+    }
 
     public String getName() {
         return name;
