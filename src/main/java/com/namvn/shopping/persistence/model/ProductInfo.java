@@ -3,7 +3,7 @@ package com.namvn.shopping.persistence.model;
 import java.util.List;
 
 public class ProductInfo {
-//    private String color;
+    //    private String color;
 //    private String size;
 //    private String manufacturer;
 //    private String material;
@@ -12,12 +12,11 @@ public class ProductInfo {
     private String sortType;
     private float minPrice;
     private float maxPrice;
-    List<String> colors;
-    List<String> sizes;
-    List<String> manufacturers;
-    List<String> materials;
-    List<String> madeIns;
-
+    private List<String> colors;
+    private List<String> sizes;
+    private List<String> manufacturers;
+    private List<String> materials;
+    private List<String> madeIns;
 
 
     public float getMinPrice() {
