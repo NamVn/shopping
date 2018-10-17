@@ -54,7 +54,6 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Bill> bills;
 
-
     public String getEmail() {
         return email;
     }

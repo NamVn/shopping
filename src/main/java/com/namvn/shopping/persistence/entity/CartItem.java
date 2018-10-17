@@ -12,6 +12,7 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cartItemId;
     private int quantity;
+    private double price;
     @ManyToOne
     @JoinColumn(name = "cartId")
     private Cart cart;
@@ -36,6 +37,14 @@ public class CartItem {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public Long getCartItemId() {

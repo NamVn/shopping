@@ -4,6 +4,7 @@ import com.namvn.shopping.pagination.PagingResult;
 import com.namvn.shopping.persistence.entity.Product;
 
 import com.namvn.shopping.persistence.model.ProductInfo;
+import com.namvn.shopping.persistence.model.ProductParam;
 import com.namvn.shopping.util.PreprocessingInput;
 import com.namvn.shopping.util.ProductContants;
 import org.hibernate.Session;
@@ -19,9 +20,9 @@ public class ProductDaoImpl implements ProductDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void queryPredicatesBetweenPrice(CriteriaQuery<Product> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductInfo productInfo, int parameter, Predicate predicates[]) {
-        float min_price = productInfo.getMinPrice();
-        float max_price = productInfo.getMaxPrice();
+    public void queryPredicatesBetweenPrice(CriteriaQuery<ProductInfo> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductParam productParam, int parameter, Predicate predicates[]) {
+        float min_price = productParam.getMinPrice();
+        float max_price = productParam.getMaxPrice();
         if ((min_price + max_price) != 0) {
             if (parameter == 1) {
                 criteriaQuery.where(builder.and(predicates[0], builder.between(root.get(ProductContants.PRICE_NEW), min_price, max_price)));
@@ -51,26 +52,26 @@ public class ProductDaoImpl implements ProductDao {
 
     }
 
-    public void queryOrderdPredicatesByPrice(CriteriaQuery<Product> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductInfo productInfo) {
-        if (productInfo.getSortType().equals(ProductContants.PRICE_ASC)) {
-            criteriaQuery.orderBy(builder.asc(root.get("priceNew")));
-        } else if (productInfo.getSortType().equals(ProductContants.PRICE_DESC)) {
-            criteriaQuery.orderBy(builder.desc(root.get("priceNew")));
+    public void queryOrderdPredicatesByPrice(CriteriaQuery<ProductInfo> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductParam productParam) {
+        if (productParam.getSortType().equals(ProductContants.PRICE_ASC)) {
+            criteriaQuery.orderBy(builder.asc(root.get(ProductContants.PRICE_NEW)));
+        } else if (productParam.getSortType().equals(ProductContants.PRICE_DESC)) {
+            criteriaQuery.orderBy(builder.desc(root.get(ProductContants.PRICE_NEW)));
         }
     }
 
     @Override
-    public Query<Product> queryByPredicates(Session session, ProductInfo productInfo) {
+    public Query<ProductInfo> queryByPredicates(Session session, ProductParam productParam) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Product> criteriaQuery = builder.createQuery(Product.class);
+        CriteriaQuery<ProductInfo> criteriaQuery = builder.createQuery(ProductInfo.class);
         Root<Product> root = criteriaQuery.from(Product.class);
-        criteriaQuery.multiselect(root.get("name"),
-                root.get("prices"),
-                root.get("priceNew"),
-                root.get("province"));
-        Map predicateMap = new PreprocessingInput().filterPredicate(productInfo);
+        criteriaQuery.multiselect(root.get(ProductContants.NAME),
+                root.get(ProductContants.PRICES),
+                root.get(ProductContants.PRICE_NEW),
+                root.get(ProductContants.PROVINCE));
+        Map predicateMap = new PreprocessingInput().filterPredicateProduct(productParam);
         int i = 0;
-        Query<Product> productQuery = null;
+        Query<ProductInfo> productQuery = null;
         int mapSize = predicateMap.size();
         if (mapSize == 1) {
             Predicate predicates[] = new Predicate[1];
@@ -78,8 +79,8 @@ public class ProductDaoImpl implements ProductDao {
             for (String key : set) {
                 predicates[0] = root.get(key).in(predicateMap.get(key));
             }
-            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productInfo, mapSize, predicates);
-            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productInfo);
+            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productParam, mapSize, predicates);
+            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productParam);
             productQuery = session.createQuery(criteriaQuery);
             return productQuery;
 
@@ -90,8 +91,8 @@ public class ProductDaoImpl implements ProductDao {
                 predicates[i] = root.get((String) key).in(predicateMap.get(key));
                 i++;
             }
-            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productInfo, mapSize, predicates);
-            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productInfo);
+            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productParam, mapSize, predicates);
+            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productParam);
             productQuery = session.createQuery(criteriaQuery);
             return productQuery;
 
@@ -102,8 +103,8 @@ public class ProductDaoImpl implements ProductDao {
                 predicates[i] = root.get((String) key).in(predicateMap.get(key));
                 i++;
             }
-            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productInfo, mapSize, predicates);
-            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productInfo);
+            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productParam, mapSize, predicates);
+            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productParam);
             productQuery = session.createQuery(criteriaQuery);
             return productQuery;
         } else if (mapSize == 4) {
@@ -113,8 +114,8 @@ public class ProductDaoImpl implements ProductDao {
                 predicates[i] = root.get((String) key).in(predicateMap.get(key));
                 i++;
             }
-            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productInfo, mapSize, predicates);
-            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productInfo);
+            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productParam, mapSize, predicates);
+            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productParam);
             productQuery = session.createQuery(criteriaQuery);
             return productQuery;
         } else if (mapSize == 5) {
@@ -124,8 +125,8 @@ public class ProductDaoImpl implements ProductDao {
                 predicates[i] = root.get((String) key).in(predicateMap.get(key));
                 i++;
             }
-            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productInfo, mapSize, predicates);
-            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productInfo);
+            queryPredicatesBetweenPrice(criteriaQuery, builder, root, productParam, mapSize, predicates);
+            queryOrderdPredicatesByPrice(criteriaQuery, builder, root, productParam);
             productQuery = session.createQuery(criteriaQuery);
             return productQuery;
         }
@@ -133,10 +134,10 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public PagingResult<Product> getQueryByDetail(int page, int limit, ProductInfo productInfo) {
+    public PagingResult<ProductInfo> getQueryByDetail(int page, int limit, ProductParam productParam) {
         Session session = sessionFactory.getCurrentSession();
-        Query<Product> productQuery = queryByPredicates(session, productInfo);
-        return new PagingResult<Product>(productQuery, page, limit);
+        Query<ProductInfo> productQuery = queryByPredicates(session, productParam);
+        return new PagingResult<ProductInfo>(productQuery, page, limit);
     }
 
     @Override

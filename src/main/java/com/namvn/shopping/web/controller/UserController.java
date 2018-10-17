@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @Controller
-public class LoginController {
+public class UserController {
 
     @Autowired
     FacebookProvider facebookProvider;

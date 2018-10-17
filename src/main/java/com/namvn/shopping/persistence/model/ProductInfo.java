@@ -1,85 +1,25 @@
 package com.namvn.shopping.persistence.model;
 
-import java.util.List;
-
 public class ProductInfo {
-    //    private String color;
-//    private String size;
-//    private String manufacturer;
-//    private String material;
-//    private String madeIn;
-//    private String province;
-    private String sortType;
-    private float minPrice;
-    private float maxPrice;
-    private List<String> colors;
-    private List<String> sizes;
-    private List<String> manufacturers;
-    private List<String> materials;
-    private List<String> madeIns;
+    private String productId;
+    private String name;
 
+    private String priceNew;
+    private String  prices;
 
-    public float getMinPrice() {
-        return minPrice;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setMinPrice(float minPrice) {
-        this.minPrice = minPrice;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public float getMaxPrice() {
-        return maxPrice;
+    public String getName() {
+        return name;
     }
 
-    public void setMaxPrice(float maxPrice) {
-        this.maxPrice = maxPrice;
-    }
-
-    public List<String> getColors() {
-        return colors;
-    }
-
-    public void setColors(List<String> colors) {
-        this.colors = colors;
-    }
-
-    public List<String> getSizes() {
-        return sizes;
-    }
-
-    public void setSizes(List<String> sizes) {
-        this.sizes = sizes;
-    }
-
-    public List<String> getManufacturers() {
-        return manufacturers;
-    }
-
-    public void setManufacturers(List<String> manufacturers) {
-        this.manufacturers = manufacturers;
-    }
-
-    public List<String> getMaterials() {
-        return materials;
-    }
-
-    public void setMaterials(List<String> materials) {
-        this.materials = materials;
-    }
-
-    public List<String> getMadeIns() {
-        return madeIns;
-    }
-
-    public String getSortType() {
-        return sortType;
-    }
-
-    public void setSortType(String sortType) {
-        this.sortType = sortType;
-    }
-
-    public void setMadeIns(List<String> madeIns) {
-        this.madeIns = madeIns;
+    public void setName(String name) {
+        this.name = name;
     }
 }

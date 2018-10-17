@@ -11,7 +11,7 @@ public class Catergory {
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long catergoryId;
-    @NotNull
+    @Column(unique = true, nullable = false)
     private String name;
     private String image;
     private int status;

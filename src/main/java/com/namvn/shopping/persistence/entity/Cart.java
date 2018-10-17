@@ -11,7 +11,7 @@ public class Cart {
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cartId;
-    private float totalMoney;
+    private double totalPrice;
     private Date date;
     private int status;
     @OneToOne(fetch = FetchType.LAZY)
@@ -33,12 +33,12 @@ public class Cart {
     }
 
 
-    public float getTotalMoney() {
-        return totalMoney;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotalMoney(float totalMoney) {
-        this.totalMoney = totalMoney;
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Date getDate() {
@@ -55,5 +55,21 @@ public class Cart {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 }

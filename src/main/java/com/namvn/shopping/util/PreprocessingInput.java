@@ -1,20 +1,19 @@
 package com.namvn.shopping.util;
 
-import com.namvn.shopping.persistence.model.ProductInfo;
+import com.namvn.shopping.persistence.model.ProductParam;
 
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PreprocessingInput {
-    public HashMap<String, List<String>> filterPredicate(ProductInfo productInfo) {
+    public HashMap<String, List<String>> filterPredicateProduct(ProductParam productParam) {
         HashMap<String,List<String>> map = new HashMap<String, List<String>>();
-        List<String> colors = productInfo.getColors();
-        List<String> sizes = productInfo.getSizes();
-        List<String> manufacturers = productInfo.getManufacturers();
-        List<String> materials = productInfo.getMaterials();
-        List<String> madeIns = productInfo.getMaterials();
+        List<String> colors = productParam.getColors();
+        List<String> sizes = productParam.getSizes();
+        List<String> manufacturers = productParam.getManufacturers();
+        List<String> materials = productParam.getMaterials();
+        List<String> madeIns = productParam.getMaterials();
         if (colors.size() > 0) map.put(ProductContants.COLOR, colors);
         if (sizes.size() > 0) map.put(ProductContants.SIZE, sizes);
         if (manufacturers.size() > 0) map.put(ProductContants.MANUFACTURER, manufacturers);

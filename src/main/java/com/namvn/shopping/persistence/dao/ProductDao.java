@@ -3,6 +3,7 @@ package com.namvn.shopping.persistence.dao;
 import com.namvn.shopping.pagination.PagingResult;
 import com.namvn.shopping.persistence.entity.Product;
 import com.namvn.shopping.persistence.model.ProductInfo;
+import com.namvn.shopping.persistence.model.ProductParam;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -10,7 +11,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.List;
 
 public interface ProductDao {
     Product getProductById(String productId);
@@ -21,13 +21,13 @@ public interface ProductDao {
 
     void editProduct(Product product);
 
-    void queryPredicatesBetweenPrice(CriteriaQuery<Product> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductInfo productInfo, int parameter, Predicate predicates[]);
+    void queryPredicatesBetweenPrice(CriteriaQuery<ProductInfo> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductParam productParam, int parameter, Predicate predicates[]);
 
-    void queryOrderdPredicatesByPrice(CriteriaQuery<Product> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductInfo productInfo);
+    void queryOrderdPredicatesByPrice(CriteriaQuery<ProductInfo> criteriaQuery, CriteriaBuilder builder, Root<Product> root, ProductParam productParam);
 
-    Query<Product> queryByPredicates(Session session, ProductInfo productInfo);
+    Query<ProductInfo> queryByPredicates(Session session, ProductParam productParam);
 
-    PagingResult<Product> getQueryByDetail(int page, int limit, ProductInfo productInfo);
+    PagingResult<ProductInfo> getQueryByDetail(int page, int limit, ProductParam productParam);
     /* Query<Product> queryOrderedPrice(Session session, String query);
     Query<Product> queryBetweenPrice(Session session,float min,float max);
     Query<Product> queryByProperty(Session session,String property, List<String> queries);

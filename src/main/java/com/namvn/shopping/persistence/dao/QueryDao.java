@@ -1,5 +1,7 @@
 package com.namvn.shopping.persistence.dao;
 
-public interface QueryDao {
+import com.namvn.shopping.persistence.entity.Queries;
 
+public interface QueryDao {
+    void addQuery(Queries queries);
 }

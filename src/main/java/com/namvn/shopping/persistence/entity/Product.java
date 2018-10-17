@@ -1,5 +1,7 @@
 package com.namvn.shopping.persistence.entity;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
@@ -12,7 +14,7 @@ public class Product {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productId;
+    private String productId;
     @NotNull
     private String name;
     @NotNull
@@ -31,6 +33,8 @@ public class Product {
     @NotNull
     private Date date;
     private int status;
+    @Transient
+    private MultipartFile productImage;
     @ManyToOne
     @JoinColumn(name = "catergoryId")
     private Catergory catergory;
@@ -90,11 +94,11 @@ public class Product {
         this.catergory = catergory;
     }
 
-    public Long getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Long productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
@@ -177,5 +181,13 @@ public class Product {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
     }
 }
