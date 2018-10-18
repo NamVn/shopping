@@ -6,12 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
+@Repository
 public class CatergoryDaoImpl implements CatergoryDao {
     @Autowired
     private SessionFactory sessionFactory;
@@ -38,6 +39,7 @@ public class CatergoryDaoImpl implements CatergoryDao {
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Catergory> criteriaQuery=criteriaBuilder.createQuery(Catergory.class);
         Root<Catergory> root=criteriaQuery.from(Catergory.class);
+        criteriaQuery.select(root);
         criteriaQuery.where(criteriaBuilder.equal(root.get(CatergoryConstant.NAME),name));
         Query<Catergory> query=session.createQuery(criteriaQuery);
         Catergory catergory=query.getSingleResult();

@@ -66,6 +66,7 @@ public class ProductDaoImpl implements ProductDao {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<ProductInfo> criteriaQuery = builder.createQuery(ProductInfo.class);
         Root<Product> root = criteriaQuery.from(Product.class);
+
         criteriaQuery.multiselect(root.get(ProductContants.NAME),
                 root.get(ProductContants.PRICES),
                 root.get(ProductContants.PRICE_NEW),
