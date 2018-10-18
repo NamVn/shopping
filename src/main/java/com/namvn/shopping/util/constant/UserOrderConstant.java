@@ -1,4 +1,4 @@
-package com.namvn.shopping.util;
+package com.namvn.shopping.util.constant;
 
 public class UserOrderConstant {
     public static final String ORDER_ID = "order_id";

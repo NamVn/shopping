@@ -1,6 +1,7 @@
 package com.namvn.shopping.util;
 
 import com.namvn.shopping.persistence.model.ProductParam;
+import com.namvn.shopping.util.constant.ProductContants;
 
 
 import java.util.HashMap;

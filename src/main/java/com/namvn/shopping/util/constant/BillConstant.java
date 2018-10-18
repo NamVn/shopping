@@ -1,4 +1,4 @@
-package com.namvn.shopping.util;
+package com.namvn.shopping.util.constant;
 
 public class BillConstant {
     public static final String NAME_USER = "name_user";

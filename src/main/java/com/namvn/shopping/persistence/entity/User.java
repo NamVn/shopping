@@ -51,8 +51,8 @@ public class User implements Serializable {
     //@JoinColumn(name = "cartId")
     private Cart cart;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Bill> bills;
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Bill bill;
 
     public String getEmail() {
         return email;
@@ -150,4 +150,11 @@ public class User implements Serializable {
     }
 
 
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(Bill bill) {
+        this.bill = bill;
+    }
 }

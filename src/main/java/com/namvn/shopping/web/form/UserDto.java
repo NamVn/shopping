@@ -1,4 +1,4 @@
-package com.namvn.shopping.web.dto;
+package com.namvn.shopping.web.form;
 
 import com.namvn.shopping.validation.PasswordMatches;
 import com.namvn.shopping.validation.ValidEmail;

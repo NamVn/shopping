@@ -18,6 +18,16 @@ public class ProductParam {
     private List<String> materials;
     private List<String> madeIns;
 
+    public ProductParam(String sortType, float minPrice, float maxPrice, List<String> colors, List<String> sizes, List<String> manufacturers, List<String> materials, List<String> madeIns) {
+        this.sortType = sortType;
+        this.minPrice = minPrice;
+        this.maxPrice = maxPrice;
+        this.colors = colors;
+        this.sizes = sizes;
+        this.manufacturers = manufacturers;
+        this.materials = materials;
+        this.madeIns = madeIns;
+    }
 
     public float getMinPrice() {
         return minPrice;

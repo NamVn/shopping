@@ -1,4 +1,4 @@
-package com.namvn.shopping.util;
+package com.namvn.shopping.util.constant;
 
 public class ProductContants {
     public static final String PRICE_ASC = "price_asc";

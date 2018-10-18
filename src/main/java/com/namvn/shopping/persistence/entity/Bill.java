@@ -15,7 +15,7 @@ public class Bill {
     private String email;
     private String tel;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user")
     private User user;
 

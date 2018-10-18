@@ -1,30 +1,29 @@
-package com.namvn.shopping.persistence.dao;
+package com.namvn.shopping.persistence.repository;
 
 import com.namvn.shopping.pagination.PagingResult;
 import com.namvn.shopping.persistence.entity.*;
 import com.namvn.shopping.persistence.model.ProductInfo;
 import com.namvn.shopping.persistence.model.UserOrderInfo;
-import com.namvn.shopping.util.UserOrderConstant;
+import com.namvn.shopping.util.constant.UserOrderConstant;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 
 import javax.persistence.criteria.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.namvn.shopping.util.BillConstant.BILL_ID;
-import static com.namvn.shopping.util.BillConstant.EMAIL;
-import static com.namvn.shopping.util.BillConstant.NAME_USER;
-import static com.namvn.shopping.util.CartConstant.CART_ID;
-import static com.namvn.shopping.util.CartItemConstant.CART_ITEM_ID;
-import static com.namvn.shopping.util.ProductContants.NAME;
-import static com.namvn.shopping.util.ProductContants.PRODUCT_ID;
-import static com.namvn.shopping.util.UserOrderConstant.*;
-
+import static com.namvn.shopping.util.constant.BillConstant.BILL_ID;
+import static com.namvn.shopping.util.constant.BillConstant.EMAIL;
+import static com.namvn.shopping.util.constant.BillConstant.NAME_USER;
+import static com.namvn.shopping.util.constant.CartConstant.CART_ID;
+import static com.namvn.shopping.util.constant.ProductContants.NAME;
+import static com.namvn.shopping.util.constant.ProductContants.PRODUCT_ID;
+import static com.namvn.shopping.util.constant.UserOrderConstant.*;
+@Repository
 public class UserOrderImpl implements UserOrderDao {
     @Autowired
     private SessionFactory sessionFactory;

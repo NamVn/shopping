@@ -9,17 +9,18 @@ public class UrlAddress {
     public static final String LOG_OUT = "/logout";
 
     public static final String PRODUCT_GET = "/product/get";
-    public static final String PRODUCT_ADD = "product/add";
+    public static final String PRODUCT_ADD = "/product/add";
     public static final String PRODUCT_EDIT = "product/edit";
-    public static final String PRODUCT_REMOVE = "product/remove";
+    public static final String PRODUCT_DELETE = "product/delete/{productId}";
+    public static final String PRODUCT_GET_ID = "/product/getId/{productId}";
 
-    public static final String ORDER = "/order";
+    public static final String ORDER_CART_ID = "/order/{cartId}";
     public static final String ORDER_GMAIL="/order/gmail";
 
-    public static final String CART_ADD = "/cart/add";
-    public static final String CART_GET = "/cart/get";
-    public static final String CART_REMOVE = "/cart/removeitem";
-    public static final String CART_REMOVE_ALL = "/cart/removeallitem";
+    public static final String CART_ADD_PRODUCT_ID = "/cart/add/{productId}";
+    public static final String CART_GET_ID = "/cart/get/{cartId}";
+    public static final String CART_DELETE_CARTITEM_ID = "/cart/delete/{cartItemId}";
+    public static final String CART_DELETE_ALL_CART_ID = "/cart//delete/all/{cartId}";
 
     public static final String COMPANY_ADD = "/company/add";
     public static final String COMPANY_EDIT = "/company/edit";

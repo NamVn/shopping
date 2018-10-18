@@ -11,7 +11,7 @@ public class CartItem {
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cartItemId;
-    private int quantity;
+    private int quanlity;
     private double price;
     @ManyToOne
     @JoinColumn(name = "cartId")
@@ -55,11 +55,11 @@ public class CartItem {
         this.cartItemId = cartItemId;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQuanlity() {
+        return quanlity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuanlity(int quanlity) {
+        this.quanlity = quanlity;
     }
 }

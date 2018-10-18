@@ -1,4 +1,4 @@
-package com.namvn.shopping.persistence.dao;
+package com.namvn.shopping.persistence.repository;
 
 import com.namvn.shopping.pagination.PagingResult;
 import com.namvn.shopping.persistence.entity.Product;
@@ -13,7 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 public interface ProductDao {
-    Product getProductById(String productId);
+    ProductInfo getProductById(String productId);
 
     void deleteProduct(String productId);
 

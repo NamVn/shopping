@@ -1,4 +1,4 @@
-package com.namvn.shopping.persistence.dao;
+package com.namvn.shopping.persistence.repository;
 
 import com.namvn.shopping.pagination.PagingResult;
 import com.namvn.shopping.persistence.entity.Product;
@@ -6,16 +6,17 @@ import com.namvn.shopping.persistence.entity.Product;
 import com.namvn.shopping.persistence.model.ProductInfo;
 import com.namvn.shopping.persistence.model.ProductParam;
 import com.namvn.shopping.util.PreprocessingInput;
-import com.namvn.shopping.util.ProductContants;
+import com.namvn.shopping.util.constant.ProductContants;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.*;
 import java.util.Map;
 import java.util.Set;
-
+@Repository
 public class ProductDaoImpl implements ProductDao {
     @Autowired
     private SessionFactory sessionFactory;
@@ -141,13 +142,14 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Product getProductById(String productId) {
+    public ProductInfo getProductById(String productId) {
         // Reading the records from the table
         Session session = sessionFactory.getCurrentSession();
         // select * from Product where isbn=i
         Product product = session.get(Product.class, productId);
 
-        return product;
+        return new ProductInfo(product.getProductId(), product.getName(), product.getPriceNew(), product.getPriceNew());
+
     }
 
     @Override

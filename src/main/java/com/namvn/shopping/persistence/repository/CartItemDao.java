@@ -1,4 +1,4 @@
-package com.namvn.shopping.persistence.dao;
+package com.namvn.shopping.persistence.repository;
 
 import com.namvn.shopping.persistence.entity.Cart;
 import com.namvn.shopping.persistence.entity.CartItem;

@@ -1,13 +1,14 @@
-package com.namvn.shopping.persistence.dao;
+package com.namvn.shopping.persistence.repository;
 
 import com.namvn.shopping.persistence.entity.Cart;
 import com.namvn.shopping.persistence.entity.CartItem;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class CartItemDaoImpl implements CartItemDao {
     @Autowired
     private SessionFactory sessionFactory;

@@ -1,6 +1,6 @@
 package com.namvn.shopping.service;
 
-import com.namvn.shopping.web.dto.UserDto;
+import com.namvn.shopping.web.form.UserDto;
 import com.namvn.shopping.persistence.entity.PasswordResetToken;
 import com.namvn.shopping.persistence.entity.User;
 import com.namvn.shopping.persistence.entity.VerificationToken;

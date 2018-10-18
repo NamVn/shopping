@@ -46,6 +46,13 @@ public class Product {
     public Product() {
     }
 
+    public Product(String productId, String name, float prices, float priceNew) {
+        this.productId = productId;
+        this.name = name;
+        this.prices = prices;
+        this.priceNew = priceNew;
+    }
+
     public String getProvince() {
         return province;
     }

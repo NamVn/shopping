@@ -1,7 +1,7 @@
-package com.namvn.shopping.persistence.dao;
+package com.namvn.shopping.persistence.repository;
 
 import com.namvn.shopping.persistence.entity.Catergory;
-import com.namvn.shopping.util.CatergoryConstant;
+import com.namvn.shopping.util.constant.CatergoryConstant;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
